@@ -2,12 +2,17 @@
   "name": "api-nodejs-com-solid",
   "version": "1.0.0",
   "description": "GymPass style app",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "start:": "node build/server.js",
     "build": "tsup src --out-dir build",
     "lint": "eslint src -e .ts --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
     "prisma": "prisma",
     "prisma:generate": "npm run prisma generate",
     "prisma:migrate": "npm run prisma migrate",
@@ -18,14 +23,20 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "2.2.2",
     "@types/node": "22.10.1",
+    "@vitest/coverage-v8": "2.1.6",
+    "@vitest/ui": "2.1.6",
     "eslint": "8.57.1",
     "prisma": "6.0.0",
     "tsup": "8.3.5",
     "tsx": "4.19.2",
-    "typescript": "5.7.2"
+    "typescript": "5.7.2",
+    "vite-tsconfig-paths": "5.1.3",
+    "vitest": "2.1.6"
   },
   "dependencies": {
     "@prisma/client": "6.0.0",
+    "@types/bcrypt": "5.0.2",
+    "bcrypt": "5.1.1",
     "dotenv": "16.4.5",
     "fastify": "5.1.0",
     "zod": "3.23.8"
