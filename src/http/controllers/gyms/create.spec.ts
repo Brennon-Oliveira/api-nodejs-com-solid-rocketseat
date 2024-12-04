@@ -2,6 +2,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import request from 'supertest'
 import { app } from '@/app'
 import { createAndAuthenticateUser } from '@/utils/test/create-and-authenticate-user'
+import { ROLE } from '@prisma/client'
 
 describe('Create Gyms (e2e)', () => {
   beforeAll(async () => {
@@ -13,7 +14,7 @@ describe('Create Gyms (e2e)', () => {
   })
 
   it('should be able to create a gym', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser(app, ROLE.ADMIN)
 
     const profileResponse = await request(app.server)
       .post('/gyms')

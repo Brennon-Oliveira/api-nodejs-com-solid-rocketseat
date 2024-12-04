@@ -3,6 +3,7 @@ import { register } from './register'
 import { authenticate } from './authenticate'
 import { profile } from './profile'
 import { verifyJWT } from '@/http/middlewares/verify-jwt'
+import { refresh } from './refresh'
 
 export const usersRoutes = async (app: FastifyInstance) => {
   app.post('/users', register)
@@ -17,4 +18,6 @@ export const usersRoutes = async (app: FastifyInstance) => {
     },
     profile,
   )
+
+  app.patch('/token/refresh', refresh)
 }
