@@ -54,7 +54,7 @@ describe('Validate Use Case', () => {
 
     vi.advanceTimersByTime(TWENTY_ONE_MINUTES_IN_MS)
 
-    expect(() =>
+    await expect(() =>
       sut.execute({
         checkInId: createdCheckIn.id,
       }),
